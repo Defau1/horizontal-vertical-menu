@@ -1,0 +1,225 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #333;
+    padding: 50px;
+}
+
+section {
+    width: 1200px;
+    height: 660px;
+    margin: 10px auto;
+    background: white;
+    padding: 50px;
+    position: relative;
+}
+
+#vertical {
+    width: 50px;
+    height: 25px;
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+}
+
+#vertical:before,
+#vertical:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 20px;
+    background: #e1e1e1;
+    visibility: visible;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+#vertical:after {
+    width: 18px;
+    height: 18px;
+    left: 1px;
+    top: 1px;
+    background: white;
+}
+
+#vertical:checked::after {
+    left: 20px;
+}
+
+#vertical:checked:before {
+    background: #00d0f0;
+}
+
+#home, #html, #css, #js, #angular {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+nav strong {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+nav strong label {
+    display: block;
+    padding: 10px 20px;
+    margin: 0 30px 0 0;
+    width: 120px;
+    cursor: pointer;
+}
+nav .underline {
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, deeppink, orange);
+    transition: 0.5s;
+    bottom: 0;
+}
+
+main {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+main div {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 99%;
+    background: #f5f5f5;
+    display: none;
+}
+
+fieldset {
+    border:  3px solid;
+    border-color:  #e5e5e5 transparent transparent transparent;
+    width: 60%;
+    padding: 30px;
+    line-height: 30px;
+}
+
+fieldset legend {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+fieldset a {
+    text-decoration: none;
+    background: purple;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 40px 0;
+    margin: 50px 20px;
+    display: inline-block;
+}
+
+main div figure {
+    width: 40%;
+    float: left;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure figcaption {
+    text-align: center;
+    font-weight: bold;
+}
+
+label:first-child i.fa {color: purple;}
+label:nth-child(2) i.fa {color: orangered;}
+label:nth-child(3) i.fa-brands {color: blue;}
+label:nth-child(4) i.fa-brands {color: yellow;}
+label:last-child i.fa-brands {color: red;}
+
+#home:checked ~ nav strong label:first-child,
+#html:checked ~ nav strong label:nth-child(2),
+#css:checked ~ nav strong label:nth-child(3),
+#js:checked ~ nav strong label:nth-child(4),
+#angular:checked ~ nav strong label:last-child {
+    background: linear-gradient(90deg, cyan, royalblue);
+}
+
+#home:checked ~ nav .underline {left: 0px;}
+#html:checked ~ nav .underline {left: 150px;}
+#css:checked ~ nav .underline {left: 300px;}
+#js:checked ~ nav .underline {left: 450px;}
+#angular:checked ~ nav .underline {
+    left: 600px;
+}
+
+#home:checked ~ main div:first-child,
+#html:checked ~ main div:nth-child(2),
+#css:checked ~ main div:nth-child(3),
+#js:checked ~ main div:nth-child(4),
+#angular:checked ~ main div:last-child {
+    display: flex;
+    align-items: center;
+}
+
+/*vertical menu*/
+
+#vertical:checked ~ nav {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: #12122e;
+}
+
+#vertical:checked ~ nav strong {
+    display: block;
+    width: 100%;
+}
+
+#vertical:checked ~ nav strong label {
+    width: 91%;
+    margin: 20px 0 0 10%;
+    color: white;
+}
+
+#vertical:checked ~ #home:checked ~ nav strong label:first-child,
+#vertical:checked ~ #html:checked ~ nav strong label:nth-child(2),
+#vertical:checked ~ #css:checked ~ nav strong label:nth-child(3),
+#vertical:checked ~ #js:checked ~ nav strong label:nth-child(4),
+#vertical:checked ~ #angular:checked ~ nav strong label:last-child {
+    background: whitesmoke;
+    color: inherit;
+}
+
+#vertical:checked ~ nav .underline {
+    top: 20px;
+    left: 9%;
+    height: 39px;
+    width: 3px;
+}
+
+#vertical:checked ~ main {
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+#vertical:checked ~ #home:checked ~ nav .underline {top: 20px;}
+#vertical:checked ~ #html:checked ~ nav .underline {top: 77.5px;}
+#vertical:checked ~ #css:checked ~ nav .underline {top: 136px;}
+#vertical:checked ~ #js:checked ~ nav .underline {top: 193.5px;}
+#vertical:checked ~ #angular:checked ~ nav .underline {top: 251.5px;}
